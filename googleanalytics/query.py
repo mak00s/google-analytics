@@ -104,7 +104,7 @@ class Report(object):
         report_columns = [column['name'] for column in raw['columnHeaders']]
         self.columns = ColumnList([all_columns[column] for column in report_columns])
         self.metrics = addressable.filter(lambda column: column.type == 'metric', self.columns)
-        self.dimensions = addressable.filter(lambda column: column.type == 'dimension', self.columns)
+        #self.dimensions = addressable.filter(lambda column: column.type == 'dimension', self.columns)
         time_columns = ['date_hour', 'date', 'year_week', 'year_month', 'year']
         try:
             self.granularity = next(column for column in self.dimensions if column.python_slug in time_columns)
